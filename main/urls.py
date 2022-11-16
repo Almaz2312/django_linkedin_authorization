@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+from django_social_app.views import logout, login, home
+
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('social.apps.django_app.urls', namespace='social')),
+    path('', include('social_django.urls', namespace='social')),
+    path('', login),
+    path('home/', home),
+    path('logout/', logout),
 ]
